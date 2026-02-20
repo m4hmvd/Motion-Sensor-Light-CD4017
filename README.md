@@ -3,7 +3,6 @@
 <div align="center">
 
 ![Status](https://img.shields.io/badge/Status-Completed-success)
-![License](https://img.shields.io/badge/License-MIT-blue)
 
 > **An automatic motion-activated lighting system using digital logic circuits**
 
@@ -105,7 +104,3 @@ This project implements an **automatic motion sensor light** that detects moveme
 5. **Power Supply:** 9V regulated supply with decoupling capacitors
 
 ---
-
-## 🔬 Working Principle
-
-### Operation Flow
