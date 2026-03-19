@@ -89,7 +89,7 @@ This project implements an **automatic motion sensor light** that detects moveme
 
 <div align="center">
 
-![Circuit Diagram](Images/circuit_diagram.png)
+![Circuit Diagram](Project Schematic Diagram .jpg)
 
 *Figure 1: Complete circuit schematic showing IR sensor, CD4017 IC, and relay control*
 
