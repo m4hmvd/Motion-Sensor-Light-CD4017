@@ -1,0 +1,27 @@
+Organise the flat root into docs/, media/ and proteus/; expand the README
+
+Layout
+- docs/    the three submitted documents, renamed descriptively
+           (report, proposal, circuit-working report)
+- media/   the schematic, the six Proteus screenshots and simulation.mp4
+- proteus/ the .pdsprj and .workspace, with the bundled IR sensor library in
+           proteus/infrared-sensor-library/
+- Remove "Proteus Files/debug.log", a Proteus runtime log that had been
+  committed. Tracked files: 18 -> 17, root clutter removed.
+
+Proteus filenames are deliberately left unchanged - Proteus resolves .LIB/.HEX/
+.IDX by name, and the .workspace is tied to the .pdsprj filename.
+
+README
+- Add a table of contents, a Simulation section with the Proteus files and the
+  capture images, a Repository Structure tree, and a Documentation table.
+- Add the previously missing Simulation and repository-layout information.
+- Fix the "Educational Value" line, which had lost its emoji.
+- Correct "HC-SR501 or similar" for the sensor: the HC-SR501 is a PIR module,
+  a different sensing principle from the IR proximity module this project uses.
+  Replaced with a generic description rather than inventing a part number.
+
+Verified
+- All 25 links and image paths in the README resolve to files that exist
+  (checked programmatically, URL-encoded paths decoded). 0 broken.
+- The Repository Structure tree matches the files on disk exactly.

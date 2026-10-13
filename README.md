@@ -3,13 +3,17 @@
 <div align="center">
 
 ![Status](https://img.shields.io/badge/Status-Completed-success)
+![Course](https://img.shields.io/badge/25CSCI10C-Electronics%20%26%20Digital%20Circuits-informational)
+![Type](https://img.shields.io/badge/type-digital%20logic%2C%20no%20microcontroller-blue)
 
 > **An automatic motion-activated lighting system using digital logic circuits**
 
-[The British University in Egypt](https://www.bue.edu.eg/) | Faculty of Informatics & Computer Science  
+[The British University in Egypt](https://www.bue.edu.eg/) | Faculty of Informatics & Computer Science
 **Module:** Electronics and Digital Circuits (`25CSCI10C`) | **Year:** 1 (Post-Preparatory)
 
 </div>
+
+---
 
 ## 👥 Team Members
 
@@ -25,16 +29,30 @@
 
 ---
 
+## 📑 Contents
+
+- [Project Overview](#-project-overview)
+- [Features](#-features)
+- [Components Required](#-components-required)
+- [Circuit Diagram](#-circuit-diagram)
+- [Simulation](#-simulation)
+- [Repository Structure](#-repository-structure)
+- [Documentation](#-documentation)
+- [Notes](#-notes)
+
+---
+
 ## 📌 Project Overview
 
 This project implements an **automatic motion sensor light** that detects movement using an IR (Infrared) proximity sensor and controls a lighting system through digital logic circuits. The design utilizes the **CD4017 decade counter IC** as the main control unit, eliminating the need for microcontrollers or programming.
 
 ### Key Highlights
+
 - 🔍 **Contactless Detection:** Uses IR technology to detect motion/obstacles
 - 🎛️ **Pure Hardware Solution:** No programming or microcontroller required
 - ⚡ **Relay-Based Control:** Can switch AC/DC loads safely
 - 💡 **Energy Efficient:** Automatic on/off based on motion detection
--  **Educational Value:** Demonstrates fundamental digital electronics concepts
+- 📚 **Educational Value:** Demonstrates fundamental digital electronics concepts
 
 ---
 
@@ -57,7 +75,7 @@ This project implements an **automatic motion sensor light** that detects moveme
 
 | Component | Quantity | Specification | Purpose |
 |-----------|----------|---------------|---------|
-| IR Obstacle Sensor | 1 | HC-SR501 or similar | Motion detection |
+| IR Obstacle Sensor | 1 | IR obstacle/proximity module | Motion detection |
 | CD4017 IC | 1 | Decade Counter | Logic control |
 | BC557 Transistor | 1 | PNP | Signal switching |
 | BC547 Transistor | 1 | NPN | Relay driver |
@@ -89,7 +107,7 @@ This project implements an **automatic motion sensor light** that detects moveme
 
 <div align="center">
 
-![Circuit Diagram](Project%20Schematic%20Diagram%20.jpg)
+![Circuit Diagram](media/schematic-diagram.jpg)
 
 *Figure 1: Complete circuit schematic showing IR sensor, CD4017 IC, and relay control*
 
@@ -104,3 +122,94 @@ This project implements an **automatic motion sensor light** that detects moveme
 5. **Power Supply:** 9V regulated supply with decoupling capacitors
 
 ---
+
+## 🔬 Simulation
+
+The circuit was simulated in **Proteus** before being built on a breadboard. The
+simulation sources are in [`proteus/`](proteus/).
+
+| File | What it is |
+|---|---|
+| [`proteus/Proteus Project File.pdsprj`](proteus/Proteus%20Project%20File.pdsprj) | The Proteus design — open this |
+| [`proteus/Proteus Project File.pdsprj.workspace`](proteus/Proteus%20Project%20File.pdsprj.workspace) | Proteus layout/workspace state for the design |
+| [`proteus/infrared-sensor-library/`](proteus/infrared-sensor-library/) | IR sensor model used by the design (`.LIB`, `.HEX`, `.IDX` + a `.DSN` demo) |
+
+> The IR sensor is not a stock Proteus part, so a third-party library is bundled
+> in `proteus/infrared-sensor-library/`. Keep those four files **together and
+> with their original names** — Proteus resolves `.LIB`/`.HEX`/`.IDX` by name.
+> To use it, load the library in Proteus' Library Manager first, then open the
+> `.pdsprj`.
+
+### Simulation capture
+
+| | |
+|---|---|
+| ![Simulation running](media/proteus-played.png) | ![Simulation idle](media/proteus-non-played.png) |
+| **Light active** — motion detected, load energised | **Standby** — no motion, load off |
+
+<div align="center">
+
+[![Simulation video](media/proteus-move-1.png)](media/simulation.mp4)
+
+*[▶ Watch the simulation recording (MP4)](media/simulation.mp4)*
+
+![Simulation log](media/simulation-log.png)
+
+*Figure 2: Simulation log*
+
+</div>
+
+---
+
+## 📁 Repository Structure
+
+```
+Motion-Sensor-Light-CD4017/
+├── README.md
+├── docs/                          submitted written work
+│   ├── A14T4-project-proposal.docx
+│   ├── A14T4-final-report.docx
+│   └── A14T4-circuit-working-report.pdf
+├── media/                         images and the simulation recording
+│   ├── schematic-diagram.jpg
+│   ├── proteus-move-1.png
+│   ├── proteus-move-2.png
+│   ├── proteus-non-played.png
+│   ├── proteus-played.png
+│   ├── simulation-log.png
+│   └── simulation.mp4
+└── proteus/                       simulation sources
+    ├── Proteus Project File.pdsprj
+    ├── Proteus Project File.pdsprj.workspace
+    └── infrared-sensor-library/
+        ├── Infrared Sensor Simulation.DSN
+        ├── InfraredSensorsTEP.HEX
+        ├── InfraredSensorsTEP.IDX
+        └── InfraredSensorsTEP.LIB
+```
+
+---
+
+## 📄 Documentation
+
+| Document | Contents |
+|---|---|
+| [`docs/A14T4-project-proposal.docx`](docs/A14T4-project-proposal.docx) | The accepted proposal and initial work plan |
+| [`docs/A14T4-final-report.docx`](docs/A14T4-final-report.docx) | Full project report |
+| [`docs/A14T4-circuit-working-report.pdf`](docs/A14T4-circuit-working-report.pdf) | Circuit working evidence |
+
+GitHub cannot preview Word files — use the *Download* button on those links.
+
+---
+
+## 📝 Notes
+
+- **Sensor naming.** The component list previously read "HC-SR501 or similar".
+  The HC-SR501 is a *PIR* module — a different sensing principle from the IR
+  obstacle/proximity module this project is built around, so the entry now reads
+  generically. If you know the exact module used, put the part number back here.
+- **No source code.** This is a pure digital-logic design; the only files that
+  can be "run" are the Proteus simulation, and Proteus itself is required.
+- **Repository size.** `media/simulation.mp4` is ~12 MB and dominates the repo.
+  It is a genuine deliverable, but if the repo is ever cloned widely, hosting it
+  as a GitHub Release asset would be the better home.
